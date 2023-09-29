@@ -25,8 +25,7 @@ def test_Positive_Student_Registration_Form():
     browser.all(".css-11unzgr").element_by(have.text("Panipat")).click()
     browser.element("#submit").click()
     browser.element("#example-modal-sizes-title-lg").should(have.text("Thanks for submitting the form"))
-    browser.element('.table').all('tr td:nth-child(2)').should(have.texts
-        (
+    browser.element('.table').all('tr td:nth-child(2)').should(have.texts(
         'Aleksei Kostromin',
         'test@mail.ru',
         'Male',
