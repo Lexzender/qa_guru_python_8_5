@@ -1,5 +1,6 @@
 import os
-from selene import browser, have
+from selene import browser, have , command
+import time
 
 
 def test_Positive_Student_Registration_Form():
@@ -15,10 +16,11 @@ def test_Positive_Student_Registration_Form():
     browser.element(".react-datepicker__year-select").click().element('[value="1994"]').click()
     browser.element(".react-datepicker__day--020").click()
     browser.element("#subjectsInput").type("Com")
-    browser.all(".subjects-auto-complete__menu-list").element_by(have.text("Computer Science")).click()
+    browser.all(".subjects-auto-complete__menu-list").first.click()
     browser.element("[for='hobbies-checkbox-3']").click()
     browser.element("#uploadPicture").send_keys(os.path.abspath('file/test.txt'))
     browser.element("#currentAddress").type("some text")
+    browser.element('[id="stateCity-label"]').perform(command.js.scroll_into_view)
     browser.element("#state").click()
     browser.all(".css-11unzgr").element_by(have.text("Haryana")).click()
     browser.element("#city").click()
@@ -39,3 +41,4 @@ def test_Positive_Student_Registration_Form():
         'Haryana Panipat'
     ))
 
+time.sleep(3)
