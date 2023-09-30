@@ -1,6 +1,6 @@
 import os
 from selene import browser, have , command
-import time
+
 
 
 def test_Positive_Student_Registration_Form():
@@ -41,4 +41,4 @@ def test_Positive_Student_Registration_Form():
         'Haryana Panipat'
     ))
 
-time.sleep(3)
+
